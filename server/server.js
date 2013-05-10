@@ -1,5 +1,19 @@
 var heure;
 
+Meteor.publish('routes', function(){
+   return Routes.find();
+});
+
+Meteor.publish('stops', function(){
+   return Stops.find();
+});
+Meteor.publish('monitor', function(){
+   return Monitor.find();
+});
+Meteor.publish('status', function(){
+   return Status.find();
+});
+
 Meteor.methods({
 
   updateCurrentState: function(route, direction) {

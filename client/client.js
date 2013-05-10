@@ -97,6 +97,14 @@ function updateSelected() {
 
 }
 
+Deps.autorun(function(){
+rh = Meteor.subscribe('routes');
+sh = Meteor.subscribe('stops');
+mh = Meteor.subscribe('monitor');
+sth = Meteor.subscribe('status');
+
+});
+
 Meteor.startup(function () {
     Session.set('routeselected', "0000")
     Session.set('destination', "0")
