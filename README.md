@@ -19,4 +19,6 @@ infowindow : ajout des infobulles pour chaque arrêt
 
 destination : traitement du sens inverse de la ligne
 
+subscribe : suppression de l'autopublish
 
+Pour activer chaque étape : git checkout <etape>
