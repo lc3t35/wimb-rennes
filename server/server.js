@@ -44,7 +44,7 @@ var getCurrentState = function(route, direction) {
           var tt = stopstatus.departures.departure
           var t=tt.content
           var temps = new Array()
-          if (t) {
+          if ((typeof t !== "undefined") && t) {
               temps.push({ temps: computeTemps(t), accurate: access_accurate(tt) , headsign: access_headsign(tt)})
           } else {
               for (var j = 0; j < tt.length; j++) {
