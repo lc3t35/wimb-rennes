@@ -20,7 +20,13 @@
 
 <template name="selectedline">
     <div id="longname">
-cliquer sur un des numeros de ligne
+        {{#if route}}
+            <div class="labelname" >
+            {{{displaydirection}}} ({{route.route_short_name}}) {{route.route_long_name}}
+            </div>
+        {{else}}
+            cliquer sur un des numeros de ligne
+        {{/if}}
     </div>
 </template>
 
