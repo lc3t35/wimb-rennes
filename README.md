@@ -2,6 +2,9 @@ wimb-rennes
 ===========
 
 Where is my bus in Rennes ? (Breizhcamp 2013 lab)
+-----------
+Available live at wimb-rennes.meteor.com
+-----------
 
 ATTENTION :
 
@@ -25,4 +28,4 @@ destination : traitement du sens inverse de la ligne
 
 subscribe : suppression de l'autopublish
 
-Pour activer chaque étape : git checkout <etape>
+Pour activer chaque étape : git checkout nom_de_l_etape
