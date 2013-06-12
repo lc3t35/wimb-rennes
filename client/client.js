@@ -17,6 +17,22 @@ Template.selectedline.displaydirection = function() {
       return ">>>>"
    };
 }
+
+Template.selectedline.events({
+    'click .labelname': function(event) {
+        console.log("click direction")
+        var previous_routeselected = Session.get('routeselected')
+        var previous_destination =  Session.get('destination')
+        if (Session.get('destination') == "1") {
+            Session.set('destination', "0")
+        } else {
+            Session.set('destination', "1")
+        }
+        updateMonitor(previous_routeselected, previous_destination, Session.get('routeselected'), Session.get('destination'))
+        updateSelected()
+    }
+});
+
 Template.lines.events({
     'click .routeicon': function(event){
     
