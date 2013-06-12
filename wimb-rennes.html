@@ -1,9 +1,47 @@
 <head>
   <title>Où est mon bus ? par laurentroger.com</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key="PUT API KEY HERE"&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOK55vVOTH4bK3CD3c91CIZgwTC1KY8Q0&sensor=false"></script>
 </head>
 
 <body>
     {{> nav}}
     {{> content}}
 </body>
+
+<template name="nav">
+    <nav>
+        <span>
+        <div id="selected">
+           {{> selectedline}}
+        </div>
+        </span>
+    </nav>
+</template>
+
+<template name="selectedline">
+    <div id="longname">
+cliquer sur un des numeros de ligne
+    </div>
+</template>
+
+<template name="content">
+    <div id="container">
+        {{> lines}}
+        {{> map_status}}
+    </div>
+</template>
+
+<template name="lines">
+    <div id="routes-container">
+        {{#each routes}}
+        <div class="icondiv" >
+            <img class="routeicon" src="img/{{route_id}}.png" alt="">
+        </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="map_status">
+  <div class="map" id="map_canvas">
+  </div>
+</template>
