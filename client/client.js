@@ -141,7 +141,53 @@ function placeSelectedRouteMarkers() {
     });
     markerArray.push(stopMarker)
     stopMarker.setAnimation(google.maps.Animation.BOUNCE)
+    addInfoWindow(status, stop, stopMarker)
   });
+}
+
+function addInfoWindow(status, stop, stopMarker){
+  
+  var estimation = status.temps[0].temps
+  var accurate = status.temps[0].acccurate
+  var headsign = status.temps[0].headsign
+  var arret = stop.stop_name
+  var infowindow = new google.maps.InfoWindow({
+    // backgroundColor: 'rgb(57,57,57)',
+    content: 
+    '<div class="markerInfo">'+
+    '<p class="arret"> Arrêt : ' + arret + '</p>' +
+    '<p class="headsign"> Destination : ' + headsign + '</p>' +
+    '<p class="estimation">'+ afficheTemps(estimation, accurate) + '</p>' +
+    '</div>'
+  });
+  infowindow.setOptions({maxWidth:150})
+  infowindow.setOptions({maxHeight:20})
+
+  google.maps.event.addListener(stopMarker, 'click', function() {
+    infowindow.open(map, this)
+    stopMarker.setAnimation(null)
+  });
+  
+  google.maps.event.addListener(stopMarker, 'mouseover', function() {
+    infowindow.open(map, this)
+    stopMarker.setAnimation(null)
+  });
+  
+  google.maps.event.addListener(stopMarker, 'mouseout', function() {
+    infowindow.close(map, this)
+  });
+}
+
+function afficheTemps(t, attrib) {
+    if (t > 60) {
+        var min = Math.floor(t / 60)
+        var temps = min + "min" + (t%60) + "s"
+    }
+    if (attrib == "1") {
+        return "prevu dans " + temps 
+    } else {
+        return "estimé dans " + temps
+    }
 }
 
 function deleteMarkers() {
