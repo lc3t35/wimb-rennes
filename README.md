@@ -3,9 +3,13 @@ wimb-rennes
 
 Where is my bus in Rennes ? (Breizhcamp 2013 lab)
 
+ATTENTION :
+
 Modifier la clé d'API KEOLIS dans le fichier server/credentials.js
 
 Modifier la clé googlemaps API dans le fichier wimb.html
+
+----------------------
 
 Chaque commit correspond à une étape du lab :
 
